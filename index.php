@@ -51,6 +51,19 @@ session_start();
                 </div>
             </nav>
         </header>
+        <div class="modal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Nie udało się wysłąć maila</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Ok</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <main class="row mx-0 fs-4">
             <div class="container col-sm-10">
                 <div class="row">
@@ -162,24 +175,34 @@ session_start();
                                 Kontakt
                             </div>
                             <div class="card-body fs-4">
-                                <form method="POST">
+                                <form method="POST" action="sendmail.php">
                                     <div class="row">
                                         <div class="col-md-9">
                                             <div class="form-group">
-                                                <label for="email">Twój email</label>
-                                                <input type="email" name="email" id="email" class="form-control" required>
+                                                <label for="name">Podaj imię</label>
+                                                <input type="text" id="name" class="form-control" name="name" required>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="tar">Cel Kontaktu</label>
-                                                <select name="tar" id="tar" class="form-select">
-                                                    <option value="1" class="text-center">Zgłoś błąd</option>
-                                                    <option value="2" class="text-center">Kontakt</option>
-                                                    <option value="3" class="text-center">Inne</option>
+                                                 <select name="tar" id="tar" class="form-select">
+                                                    <option value="Zgłoś błąd" class="text-center">Zgłoś błąd</option>
+                                                    <option value="Kontakt" class="text-center">Kontakt</option>
+                                                    <option value="Inne" class="text-center">Inne</option>
                                                 </select>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="email">Twój email</label>
+                                                <input type="email" name="email" id="email" class="form-control" required>
+                                            </div>
+                                                
+                                        </div>
+                                        
                                     </div>
                                     <div class="row">
                                         <div class="col">
@@ -215,8 +238,33 @@ session_start();
             </div>
             
         </main>
+
+        <div class="modal" tabindex="-1" id="mailok">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Mail został wysłany</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Bootstrap 5 include -->
         <script src="js/bootstrap.bundle.js"></script>
         <script src="main.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+
+        <script type="text/javascript">
+            function showpop() {
+                var myModal = new bootstrap.Modal(document.getElementById('mailok'), {
+                    keyboard: false
+                })
+            myModal.show()
+            }
+        </script>
     </body>
 </html>
