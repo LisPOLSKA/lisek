@@ -166,30 +166,20 @@ session_start();
                                     <div class="row">
                                         <div class="col-md-9">
                                             <div class="form-group">
-                                                <label for="name">Podaj imię</label>
-                                                <input type="text" id="name" class="form-control" required>
+                                                <label for="email">Twój email</label>
+                                                <input type="email" name="email" id="email" class="form-control" required>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                    <label for="tar">Cel Kontaktu</label>
-                                                    <select name="tar" id="tar" class="form-select">
-                                                        <option value="1" class="text-center">Zgłoś błąd</option>
-                                                        <option value="2" class="text-center">Kontakt</option>
+                                                <label for="tar">Cel Kontaktu</label>
+                                                <select name="tar" id="tar" class="form-select">
+                                                    <option value="1" class="text-center">Zgłoś błąd</option>
+                                                    <option value="2" class="text-center">Kontakt</option>
                                                     <option value="3" class="text-center">Inne</option>
                                                 </select>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="form-group">
-                                                <label for="email">Twój email</label>
-                                                <input type="email" name="email" id="email" class="form-control" required>
-                                            </div>
-                                                
-                                        </div>
-                                        
                                     </div>
                                     <div class="row">
                                         <div class="col">
