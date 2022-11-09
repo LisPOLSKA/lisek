@@ -167,7 +167,7 @@ session_start();
                                         <div class="col-md-9">
                                             <div class="form-group">
                                                 <label for="name">Podaj imię</label>
-                                                <input type="text" id="name" class="form-control" required>
+                                                <input type="text" id="name" class="form-control" name="name" required>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
