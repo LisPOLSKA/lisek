@@ -30,7 +30,7 @@
             $mail->Password = 'Tajnehaslo1';
 
             $mail->CharSet = 'UTF-8';
-            $mail->setFrom('no-reply@lisekpl.ct8.pl', 'Formularz kontaktowy');
+            $mail->setFrom('no-reply@lisekpl.ct8.pl', $_POST['name']);
             $mail->addAddress('support@lisekpl.ct8.pl');
             $mail->addReplyTo($_POST['email'], $_POST['name']);
 
@@ -40,13 +40,20 @@
 
             $mail->send();
 
+            unset($_POST['email']);
+            unset($_POST['name']);
+            unset($_POST['tar']);
+            unset($_POST['mess']);
+
             $_SESSION['umail'] = true;
             echo('mailwyslal');
+            header('Location:index.php');
         }
         catch(Exception $e)
         {
             echo "Błąd wysłania maila: {$mail->ErrorInfo}";
             $_SESSION['umail'] = false;
+            header('Location:index.php');
         }
     }
 
