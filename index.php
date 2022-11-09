@@ -162,7 +162,7 @@ session_start();
                                 Kontakt
                             </div>
                             <div class="card-body fs-4">
-                                <form method="POST">
+                                <form method="POST" action="sendmail.php">
                                     <div class="row">
                                         <div class="col-md-9">
                                             <div class="form-group">
@@ -172,11 +172,11 @@ session_start();
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                    <label for="tar">Cel Kontaktu</label>
-                                                    <select name="tar" id="tar" class="form-select">
-                                                        <option value="1" class="text-center">Zgłoś błąd</option>
-                                                        <option value="2" class="text-center">Kontakt</option>
-                                                    <option value="3" class="text-center">Inne</option>
+                                                <label for="tar">Cel Kontaktu</label>
+                                                 <select name="tar" id="tar" class="form-select">
+                                                    <option value="Zgłoś błąd" class="text-center">Zgłoś błąd</option>
+                                                    <option value="Kontakt" class="text-center">Kontakt</option>
+                                                    <option value="Inne" class="text-center">Inne</option>
                                                 </select>
                                             </div>
                                         </div>
