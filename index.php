@@ -1,5 +1,20 @@
 <?php
 session_start();
+//unset($_SESSION['umail']);
+if (isset($_SESSION['umail'])) {
+    if($_SESSION['umail'] == 'true'){
+        $umail = $_SESSION['umail'];
+        unset($_SESSION['umail']);
+    }
+    else if($_SESSION['umail'] == 'false'){
+        $umail = 'false1';
+        unset($_SESSION['umail']);
+    }
+}
+else {
+    $umail = 'false';
+    unset($_SESSION['umail']);
+}
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -252,6 +267,19 @@ session_start();
                 </div>
             </div>
         </div>
+        <div class="modal" tabindex="-1" id="mailunok">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Nie udało się wysłać mail</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Bootstrap 5 include -->
         <script src="js/bootstrap.bundle.js"></script>
@@ -259,12 +287,20 @@ session_start();
         <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
 
         <script type="text/javascript">
-            function showpop() {
+            let uma = <?php echo json_encode($umail)?>;
+            if(uma == 'true') {
                 var myModal = new bootstrap.Modal(document.getElementById('mailok'), {
                     keyboard: false
                 })
-            myModal.show()
+                myModal.show();
+            }
+            else if(uma == 'false1') {
+                var myModal1 = new bootstrap.Modal(document.getElementById('mailunok'), {
+                    keyboard: false
+                })
+                myModal1.show();
             }
         </script>
     </body>
 </html>
+<!-- gydugyefghds-->
