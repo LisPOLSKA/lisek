@@ -101,7 +101,6 @@ else {
                                                 <li class="list-group-item colortable">HTML</li>
                                                 <li class="list-group-item colortable">CSS</li>
                                                 <li class="list-group-item colortable">PHP</li>
-                                                <li class="list-group-item colortable">SQL</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -245,11 +244,11 @@ else {
                 </div>
             </div>
             <div class="container col-sm-2">
-            <div class="row">
-            <section class="mt-2 mb-2 text-center" id="magia">
-                Pasek na reklame
-            </section>
-            </div>
+                <div class="row">
+                    <section class="mt-2 mb-2 text-center" id="magia">
+                        <img src="img/ad3.png" class="img-fluid" alt="Przykładowa reklama">
+                    </section>
+                </div>
             </div>
             
         </main>
@@ -271,11 +270,35 @@ else {
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Nie udało się wysłać mail</h5>
+                        <h5 class="modal-title">Nie udało się wysłać maila</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" tabindex="-1" id="akreg">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"><a href="regulamin.html" target="_blank">Regulamin</a></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h1>Regulamin strony:</h1>
+                        1: Żedne podane dane nie zostaną zapisane w żadnej bazie danych.<br>
+                        2: Żadne podane dane nie zostaną upublicznione ani przekazane nikomu.<br>
+                        3: W przypadku wysłania formularza kontaktowego na podany mail zostanie przysłana wiadomość z odpowiedzią.<br>
+                        4: Strona korzysta z "local storage" w celu przechowywania danych o stanie przełącznika dark mode.<br>
+                        5: Strona korzysta z "zmiennych sesyjnych" w celu wysłania formularza oraz "nie znikania" wartości z pól tekstowych.<br>
+                        6: Administratorem twoich danych osobowych jest firma krzak.<br>
+                        7: Jednorazowa akceptacja regulaminu oznacza że za każdym kolejnym wejściem na stronę, regulamin będzie automatycznie akceptowany.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="akregf()">Akceptuje regulamin</button>
                     </div>
                 </div>
             </div>
@@ -299,6 +322,19 @@ else {
                     keyboard: false
                 })
                 myModal1.show();
+            }
+            var myModal2 = new bootstrap.Modal(document.getElementById('akreg'), {
+            keyboard: false
+            })
+            let akreg = localStorage.getItem("akreg");
+
+            if (akreg == "true") {
+            }
+            else {
+            myModal2.show();
+            }
+            function akregf() {
+                localStorage.setItem("akreg", "true");
             }
         </script>
     </body>

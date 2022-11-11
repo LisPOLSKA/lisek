@@ -19,7 +19,9 @@
         $email = $_POST['email'];
         $emailB = filter_var($email, FILTER_SANITIZE_EMAIL);
         $walidacjaok = true;
-        if(filter_var($emailB, FILTER_VALIDATE_EMAIL) == false || $email != $emailB)
+        $name = $_POST['name'];
+        $mess = $_POST['mess'];
+        if(filter_var($emailB, FILTER_VALIDATE_EMAIL) == false || $email != $emailB || $email == '')
         {
             $walidacjaok = false;
             $_SESSION['umail'] = 'false';
@@ -28,6 +30,30 @@
         }
 
         if(!isset($_POST['check']))
+        {
+            $walidacjaok = false;
+            $_SESSION['umail'] = 'false';
+            header('Location:index.php');
+            exit();
+        }
+    
+        if($name == '')
+        {
+            $walidacjaok = false;
+            $_SESSION['umail'] = 'false';
+            header('Location:index.php');
+            exit();
+        }
+
+        if(strlen($name)>20)
+        {
+            $walidacjaok = false;
+            $_SESSION['umail'] = 'false';
+            header('Location:index.php');
+            exit();
+        }
+
+        if(strlen($mess) < 3 || $mess='')
         {
             $walidacjaok = false;
             $_SESSION['umail'] = 'false';
